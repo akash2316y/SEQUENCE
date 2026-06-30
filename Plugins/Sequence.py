@@ -201,28 +201,31 @@ async def end_cmd(client: Client, message: Message):
                                 client.send_document,
                                 chat_id=target_chat,
                                 document=file_id,
-                                caption=filename
+                                caption=f"<b>{filename}</b>",
+                                parse_mode=ParseMode.HTML
                             )
                         elif file_format == 'video':
                             await handle_floodwait(
                                 client.send_video,
                                 chat_id=target_chat,
                                 video=file_id,
-                                caption=filename
+                                caption=f"<b>{filename}</b>",
+                                parse_mode=ParseMode.HTML
                             )
                         elif file_format == 'audio':
                             await handle_floodwait(
                                 client.send_audio,
                                 chat_id=target_chat,
                                 audio=file_id,
-                                caption=filename
+                                caption=f"<b>{filename}</b>",
+                                parse_mode=ParseMode.HTML
                             )
                     else:
                         # Text-only entry (filename without actual file)
                         await handle_floodwait(
                             client.send_message,
                             chat_id=target_chat,
-                            text=f"📄 {filename}"
+                            text=f"<b>{filename}</b>"
                         )
                     
                     sent_count += 1
