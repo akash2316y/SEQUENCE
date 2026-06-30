@@ -1,5 +1,7 @@
 import os
 from os import environ
+from dotenv import load_dotenv
+load_dotenv()
 
 TG_BOT_TOKEN = os.environ.get("BOT_TOKEN", "0")
 APP_ID = int(os.environ.get("APP_ID", "0"))
